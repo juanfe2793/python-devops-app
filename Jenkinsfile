@@ -1,7 +1,8 @@
 pipeline {
     agent { docker { image 'python:3.5.1' } }
-
+    
     stages {
+
         stage('version') {
             steps {
                 sh 'python --version'
@@ -17,7 +18,7 @@ pipeline {
               echo 'Installing flask...'
               withEnv(["HOME=${env.WORKSPACE}"]){
                   
-                  sh 'pip3 install flask flask-migrate flask-script'
+                  sh 'pip3 install --user flask flask-migrate flask-script'
               }
               
             }
