@@ -18,7 +18,7 @@ pipeline {
               echo 'Installing flask...'
               withEnv(["HOME=${env.WORKSPACE}"]){
                   
-                  sh 'pip3 install --user requirements.txt'
+                  sh 'pip3 install --user flask flask-migrate flask-script'
                   echo 'Building the artifact....'
                   sh 'python3 manage.py db init'
                   sh 'python3 manage.py db migrate'
