@@ -1,7 +1,12 @@
-pipeline 
+pipeline{ 
   agent { docker { image 'python:3.7.2' } }
    
+   
   stages {
+    stage('test') {
+        steps {
+          sh 'python --version'
+    }
     stage ('Checkout Git repo'){
       steps {
         checkout scm
