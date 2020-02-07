@@ -23,8 +23,7 @@ pipeline {
                   sh 'python3 manage.py db init'
                   sh 'python3 manage.py db migrate'
                   sh 'python3 manage.py db upgrade'
-                  sh  'python3 manage.py runserver'
-              }
+                }
               
             }
         }    
