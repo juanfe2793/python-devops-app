@@ -10,12 +10,12 @@ pipeline {
     checkout scm
   stage "Build App" 
     echo 'Installing flask...'
-    sh "pip install --user -r requirements.txt"
+    sh "sudo docker run -v pip install --user -r requirements.txt"
     sh "pwd"
-    sh "python3 manage.py db init"
-    sh "python3 manage.py db migrate"
-    sh "python3 manage.py db upgrade"
-    sh "python3 manage.py runserver"
+    sh "sudo docker run -v python3 manage.py db init"
+    sh "sudo docker run -v python3 manage.py db migrate"
+    sh "sudo docker run -v python3 manage.py db upgrade"
+    sh "sudo docker run -v python3 manage.py runserver"
   stage "test"
     sh "python test.py"
   stage "Trigger downstream"
