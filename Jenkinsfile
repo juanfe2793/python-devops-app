@@ -1,10 +1,12 @@
-#!groovy
-
 pipeline 
   agent { docker { image 'python:3.7.2' } }
-    stage "Checkout Git repo"
-    checkout scm
+   
   stages {
+    stage ('Checkout Git repo'){
+      steps {
+        checkout scm
+      }
+    }
     stage('build') {
       steps {
         echo 'Building the artifact....'
