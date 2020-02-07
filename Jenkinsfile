@@ -10,6 +10,13 @@ pipeline {
             steps {
                 checkout scm
             }
+        }
+        stage ('install flask'){
+            steps {
+              echo 'Installing flask...'
+              sh 'yum install sqlite'
+              sh 'pip3 install flask flask-migrate flask-script'
+            }
         }    
         stage('build') {
             steps {
