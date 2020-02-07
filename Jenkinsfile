@@ -3,7 +3,6 @@
 pipeline {
 
   agent { docker { image 'python:3.7.2' } }
-  step([$class: 'WsCleanup'])
   stage "version"
     sh "python --version"
   stage "Checkout Git repo"
